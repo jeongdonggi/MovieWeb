@@ -1,0 +1,11 @@
+.movie_genres {
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.genres__poster img {
+    width: 200px;
+    height: 300px;
+}

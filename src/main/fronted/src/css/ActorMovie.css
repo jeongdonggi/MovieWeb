@@ -1,0 +1,6 @@
+.movies__actormv {
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}

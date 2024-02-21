@@ -1,0 +1,26 @@
+.movie__searchbar {
+    position: relative;
+    width: auto;
+}
+
+.search__input {
+    width: 70%;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    padding: 10px 12px;
+    font-size: 14px;
+    margin-right: 2px;
+}
+
+.search__btn {
+    width: 15%;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.search__icon {
+    width: 15px;
+    height: auto;
+}

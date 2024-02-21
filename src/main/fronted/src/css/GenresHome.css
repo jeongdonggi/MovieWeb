@@ -1,0 +1,15 @@
+.genres__poster {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+}
+
+.genres__poster::-webkit-scrollbar {
+    background-color: black;
+}
+
+.genres__poster::-webkit-scrollbar-thumb{
+    background-color: #555;
+    border-radius: 10px;
+}

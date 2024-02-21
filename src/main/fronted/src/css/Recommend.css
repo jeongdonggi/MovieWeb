@@ -1,0 +1,20 @@
+.movie__recommends {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+}
+
+.recommend__img {
+    width: auto;
+    height: 300px;
+}
+
+.movie__recommends::-webkit-scrollbar{
+    background-color: black;
+}
+
+.movie__recommends::-webkit-scrollbar-thumb{
+    background-color: #555;
+    border-radius: 10px;
+}

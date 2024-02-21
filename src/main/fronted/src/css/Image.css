@@ -1,0 +1,26 @@
+.image__posters, .image__backdrops {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+}
+
+.poster__img, .backdrop__img {
+    width: auto;
+    height: 300px;
+}
+
+.actor__name, .ch__name {
+    text-align: center;
+}
+
+.image__posters::-webkit-scrollbar,
+.image__backdrops::-webkit-scrollbar {
+    background-color: black;
+}
+
+.image__posters::-webkit-scrollbar-thumb,
+.image__backdrops::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}

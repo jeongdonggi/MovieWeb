@@ -1,0 +1,24 @@
+.nav__btn {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.nav__btn:hover {
+  background-color: #333; /* 마우스를 올렸을 때 배경색 변경 */
+}
+
+.nav, .nav__ul {
+  margin: 15px;
+  margin-left: 0px;
+}
+
+.nav__ul > li {
+  padding: 5px;
+}
+
+.nav__ul:hover, .nav__ul > li {
+  display: block;
+}

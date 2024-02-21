@@ -1,0 +1,105 @@
+.movie {
+    width: 100%;
+}
+
+.background__container {
+    width: 100%;
+    height: 450px;
+    position: absolute;
+    overflow: hidden;
+}
+
+.background {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4)); /* 예시: 높은 투명도 그라데이션 */
+    z-index: 0;
+}
+
+.poster__container {
+    width: 350px;
+    height: 400px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.poster {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    margin-top: 10%;
+}
+
+.movie__explanation {
+    margin: 10px;
+    display: flex;
+}
+
+.explanation__movie {
+    width: 100%;
+    z-index: 1;
+}
+
+.flex__explanation {
+    display: flex;
+    gap: 10px;
+}
+
+.movie__summary {
+    overflow: auto;
+    white-space: pre-wrap;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 30%;
+    margin: 20px 0;
+}
+
+.movie__tagline {
+    overflow: auto;
+    white-space: pre-wrap;
+    width: 70%;
+    margin: 20px 0;
+}
+
+.movie__genres {
+    /* 가로 */
+    display: flex;
+    gap: 10px; 
+}
+
+.movie__genre {
+    margin: 0;
+}
+
+.movie__late {
+    margin-left: 10px;
+    border: 1px solid white;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.movie__year {
+    margin-bottom: 0px;
+}
+
+.movie__tagline::-webkit-scrollbar,
+.movie__summary::-webkit-scrollbar {
+    background-color: black;
+    width: 5px;
+}
+
+.movie__tagline::-webkit-scrollbar-thumb,
+.movie__summary::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}

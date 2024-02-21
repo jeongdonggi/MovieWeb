@@ -1,0 +1,24 @@
+.movies__popular {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+}
+
+.movies__toplate {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+}
+
+.movies__popular::-webkit-scrollbar,
+.movies__toplate::-webkit-scrollbar {
+    background-color: black;
+}
+
+.movies__popular::-webkit-scrollbar-thumb,
+.movies__toplate::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}

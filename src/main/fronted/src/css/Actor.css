@@ -1,0 +1,29 @@
+.image__actors {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    gap: 20px;
+}
+
+.actor__img {
+    width: auto;
+    height: 300px;
+}
+
+.image__actors::-webkit-scrollbar {
+    background-color: black;
+}
+
+.image__actors::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+.image__actor {
+    text-decoration: none;
+    color: white;
+}
+
+.image__actor:hover {
+    color: gray;
+}
