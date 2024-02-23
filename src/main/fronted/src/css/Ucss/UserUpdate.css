@@ -1,0 +1,51 @@
+.update__container {
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 40%;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.update__container > button {
+    margin-left: 80%;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.update__container > button:hover {
+    background-color: gainsboro;
+}
+  
+.update__container > p > input {
+    margin-bottom: 15px;
+}
+  
+.update__container > p > input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+.update__container > p > button {
+    text-align: center;
+}
+  
+.update__container > p > button {
+    background-color: black;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.update__container > p > button:hover {
+    background-color: gainsboro;
+    color: black;
+}
+  

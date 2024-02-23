@@ -1,14 +1,12 @@
 package movie.MovieApp.controller;
 
 import lombok.RequiredArgsConstructor;
-import movie.MovieApp.dto.UserDto;
-import movie.MovieApp.dto.UserInfoDto;
-import movie.MovieApp.dto.UserLoginDto;
-import movie.MovieApp.dto.UserUpdateDto;
+import movie.MovieApp.dto.*;
 import movie.MovieApp.mapper.MovieAppMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -40,12 +38,20 @@ public class UserController {
         return mapper.InsertUser(name, nickname, password);
     }
 
-    @GetMapping("/myinfo")
-    public UserDto MyInfo(@RequestParam("id") String id){
-        System.out.println("myInfo"+ id);
-        int userId = Integer.parseInt(id);
-        UserDto user = mapper.getUser(userId);
+    @PostMapping("/myinfo")
+    public UserMyInfoDto MyInfo(@RequestBody Map<String, String> request){
+        System.out.println("UserController.MyInfo");
+        int userId = Integer.parseInt(request.get("id"));
+        UserMyInfoDto user = mapper.getUser(userId);
         return user;
+    }
+
+    @PostMapping("/otherinfo")
+    public UserAllInfoDto otherInfo(@RequestBody Map<String, String> request) {
+        System.out.println("UserController.otherInfo");
+        int userId = Integer.parseInt(request.get("id"));
+        UserAllInfoDto otherUser = mapper.getOtherUser(userId);
+        return otherUser;
     }
 
     @GetMapping("/allinfo")
@@ -56,24 +62,54 @@ public class UserController {
     }
 
     // 수정
+    @PostMapping("getnick")
+    public UserInfoDto getNick(@RequestBody Map<String, String> request) {
+        System.out.println("UserController.getNick");
+
+        int userId = Integer.parseInt(request.get("id"));
+        return mapper.getUserNickname(userId);
+    }
+
     @PostMapping("/update")
-    public int UpdateUser(@RequestParam("id") String id ,@RequestBody UserUpdateDto user){
+    public int UpdateUser(@RequestBody UserUpdateDto user){
         System.out.println("update");
 
-        int userId = Integer.parseInt(id);
-
+        String id = user.getId();
         String nickname = user.getNickname();
         String password = user.getPassword();
 
-        int num = mapper.UpdateUser(userId, nickname, password);
+        int userId = Integer.parseInt(id);
 
-        if (num == 1){
-            return num;
-        } else {
+        if ( nickname.equals("") || password.equals("")){
             return -1;
+        } else {
+            int num = mapper.UpdateUser(userId, nickname, password);
+
+            if (num == 1){
+                return num;
+            } else {
+                return -1;
+            }
         }
     }
 
     // 삭제
+    @PostMapping("/getpass")
+    public UserPassDto getPass(@RequestBody Map<String, String> request){
+        System.out.println("UserController.getPass");
+
+        int userId = Integer.parseInt(request.get("id"));
+
+        return mapper.getUserPassword(userId);
+    }
+
+    @PostMapping("/withdraw")
+    public int Delete(@RequestBody Map<String, String> request) {
+        System.out.println("UserController.Delete");
+
+        int userId = Integer.parseInt(request.get("id"));
+
+        return mapper.DeleteUser(userId);
+    }
 
 }

@@ -28,7 +28,6 @@ const Search = () => {
                 }
             })
         ).data;
-        console.log(json.results);
         setSearchs(json.results);
         setLoading(false);
     },[word, TMDB_API])

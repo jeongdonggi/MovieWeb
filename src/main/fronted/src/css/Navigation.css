@@ -10,6 +10,22 @@
   background-color: #333; /* 마우스를 올렸을 때 배경색 변경 */
 }
 
+.nav__ul {
+  height: 300px;
+  overflow-y: auto;
+  margin-bottom: 0;
+}
+
+.nav__ul::-webkit-scrollbar {
+  background-color: black;
+}
+
+.nav__ul::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 10px;
+}
+
+
 .nav, .nav__ul {
   margin: 15px;
   margin-left: 0px;

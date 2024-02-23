@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"
-import "../css/Navigation.css";
+import "../../css/Navigation.css";
 
-const Navigation = () => {
+const Navigation = ({login}) => {
 
   const [genres, setGenres] = useState([]);
 
@@ -55,13 +55,18 @@ const Navigation = () => {
 
   return (
     <div>
-      <div className="nav">
-        <Link to="/home" className="nav__btn">홈</Link>
-      </div>
-      <div className="nav">
-        <Link to="/now" className="nav__btn">상영작</Link>
-      </div>
-      <DropdownMenu genres={genres} />
+      {login ? (
+        <>
+          <div className="nav">
+            <Link to="/home" className="nav__btn">홈</Link>
+          </div>
+          <div className="nav">
+            <Link to="/now" className="nav__btn">상영작</Link>
+          </div>
+          <DropdownMenu genres={genres} />
+        </>
+      ) : ( null )}
+      
     </div>
   )
 }

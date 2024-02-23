@@ -1,0 +1,31 @@
+.allinfo__container {
+    position: fixed;
+    width: 15%;
+}
+
+.allinfo__ul {
+    height: auto;
+    width: 60%;
+    border: 1px solid white;
+    text-align: center;
+    margin: 10%;
+    padding: 0;
+}
+  
+  .allinfo__ul > li {
+    padding-bottom: 5px;
+  }
+  
+  .allinfo__ul:hover, .allinfo__ul > li {
+    display: block;
+  }
+
+  .allinfo__div {
+    text-decoration: none;
+    color: white;
+  }
+
+  .allinfo__div:hover {
+    border-radius: 5px 5px 5px 5;
+    background-color: gray;
+  }

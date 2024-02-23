@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class UserUpdateDto {
-    private String id;
+public class UserAllInfoDto {
     private String nickname;
-    private String password;
 }

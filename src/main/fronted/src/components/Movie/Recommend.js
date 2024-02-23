@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../css/Recommend.css";
+import "../../css/Recommend.css";
 
 const Recommend = ({id}) => {
     const [recommends, setRecommends] = useState([]);

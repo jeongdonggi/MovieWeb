@@ -1,28 +1,21 @@
 import { Link } from "react-router-dom"
 
+import "../css/Ucss/First.css";
+
 const First = () => {
   return (
-    <div>
+    <div className="first__container">
         <button>
-            <Link to={`/login`}>
+            <Link to={`/login`} className="first__link" >
                 로그인
             </Link>
         </button>
         <button>
-            <Link to={`join`}>
+            <Link to={`join`} className="first__link" >
                 회원가입
             </Link>
         </button>
-        <button>
-            <Link to={`/myinfo`}>
-                내 정보
-            </Link>
-        </button>
-        <button>
-            <Link to={`allinfo`}>
-                회원 정보
-            </Link>
-        </button>
+        
     </div>
   )
 }

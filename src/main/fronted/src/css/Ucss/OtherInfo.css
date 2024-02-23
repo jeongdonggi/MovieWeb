@@ -1,0 +1,15 @@
+.other__container {
+    background-color: #333;
+    border-radius: 8px;
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 60%;
+    margin: 10% auto;
+    text-align: center;
+  }
+  
+  .other__container p {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }

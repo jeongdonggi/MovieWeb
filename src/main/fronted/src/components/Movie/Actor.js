@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import "../css/Actor.css";
+import "../../css/Actor.css";
 import { Link } from "react-router-dom";
 
 const Actor = ({id}) => {

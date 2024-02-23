@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../css/ActorMovie.css";
-import Movie from "../components/Movie.js";
+import Movie from "../components/Movie/Movie.js";
 
 const ActorMovie = () => {
   const [movies, setMovies] = useState([]);
@@ -32,7 +32,6 @@ const ActorMovie = () => {
     })).data;
 
     setMovies(json.cast);
-    console.log("also",namejson.name);
     setNames(namejson.also_known_as);
     setName(namejson.name)
     setLoading(false);

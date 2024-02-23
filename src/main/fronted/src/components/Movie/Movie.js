@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "../css/Movie.css"
+import "../../css/Movie.css"
 
 export const Movie = ({id, poster}) => {
     const tmdbImageUrl = "https://image.tmdb.org/t/p/w500";

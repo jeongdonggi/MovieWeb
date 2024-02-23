@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
+import "../../css/Ucss/JoinForm.css";
 
 const JoinForm = () => {
     const [name, setName] = useState('');
@@ -8,6 +9,10 @@ const JoinForm = () => {
     const [password, setPassword] = useState(''); 
 
     const Navigation = useNavigate(); // 주소 변경
+
+    const BackToMain = () => {
+        Navigation(`/`);
+    }
 
     const onClickEnter = (e) => {
        if(e.key === 'Enter') {
@@ -29,11 +34,9 @@ const JoinForm = () => {
 
             if (response.data === 1) {
                 // 회원가입 성공 시 처리
-                console.log("회원가입 성공");
                 Navigation(`/login`);
             } else {
                 // 회원가입 실패 시 처리
-                console.error('회원가입 실패');
                 redirect("/join");
             }
         } catch (error) {
@@ -42,11 +45,14 @@ const JoinForm = () => {
     };
 
   return (
-    <div>
-        <p><input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={onClickEnter} /></p>
-        <p><input type="text" placeholder="nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} onKeyDown={onClickEnter} /></p>
-        <p><input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={onClickEnter} /></p>
-        <p><button onClick={handleJoin}>회원가입</button></p>
+    <div className='popup'>
+        <div className='join__container'>
+            <button onClick={BackToMain}>X</button>
+            <p><input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={onClickEnter} /></p>
+            <p><input type="text" placeholder="nickname" value={nickname} onChange={(e) => setNickname(e.target.value)} onKeyDown={onClickEnter} /></p>
+            <p><input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={onClickEnter} /></p>
+            <p><button onClick={handleJoin}>회원가입</button></p>
+    </div>
     </div>
   )
 }

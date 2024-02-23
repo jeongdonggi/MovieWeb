@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import "../css/Video.css";
+import "../../css/Video.css";
 
 const Video = ({id}) => {
 
@@ -22,7 +22,6 @@ const Video = ({id}) => {
                 }
             })
         ).data;
-        console.log(json.results);
         setVideos(json.results);
     },[id, TMDB_API])
 

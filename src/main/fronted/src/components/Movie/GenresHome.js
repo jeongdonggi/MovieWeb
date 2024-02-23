@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react"
 import axios from "axios"
 import Movie from "./Movie";
-import "../css/GenresHome.css";
+import "../../css/GenresHome.css";
 
 // 얘는 들어오면서 string으로 받아서 오류 안 생긴거임
 const GenresHome = ({genresid}) => {
@@ -45,9 +45,7 @@ const GenresHome = ({genresid}) => {
 
     useEffect(() => {
         const genreObj = genres.find(genre => genre.id === genresid);
-        console.log(genresid);
-        console.log(genres)
-        console.log(genreObj);
+
         if(genreObj){
             setGname(genreObj.name);
         } else{

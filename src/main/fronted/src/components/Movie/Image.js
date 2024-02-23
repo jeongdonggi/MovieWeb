@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import "../css/Image.css";
+import "../../css/Image.css";
 
 const Image = ({id}) => {
 
@@ -24,7 +24,6 @@ const Image = ({id}) => {
                 }
             })
         ).data;
-        console.log(json);
         setBackdrops(json.backdrops);
         setPosters(json.posters);
     },[id, TMDB_API])

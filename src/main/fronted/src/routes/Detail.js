@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import MovieDetail from "../components/MovieDetail";
+import MovieDetail from "../components/Movie/MovieDetail";
 import axios from "axios";
 
 const Detail = () => {
@@ -15,7 +15,6 @@ const Detail = () => {
 
     // useCallback: id가 변경될 때마다 함수 생성
     const getMovie = useCallback( async() => {
-        console.log("id값: ", id);
         const json = await (
             await axios.get(`https://api.themoviedb.org/3/movie/${id}`,
             {
@@ -27,7 +26,6 @@ const Detail = () => {
                 }
             })
         ).data;
-        console.log(json);
         setMovie(json);
         setLoading(false);
     },[id, TMDB_API]);

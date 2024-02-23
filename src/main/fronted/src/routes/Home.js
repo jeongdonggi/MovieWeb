@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
-import Movie from "../components/Movie";
+import Movie from "../components/Movie/Movie";
 import axios from "axios";
 import "../css/Home.css";
-import GenresHome from "../components/GenresHome";
+import GenresHome from "../components/Movie/GenresHome";
 
 export const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -10,8 +10,6 @@ export const Home = () => {
     const [playings, setPlayings] = useState([]);
 
     const TMDB_API =  process.env.REACT_APP_TMDB_API_KEY;
-
-    
 
     // 비동기 함수: Promise => 비동기 작업의 단위
     const getMovies = useCallback(async() => {
@@ -39,7 +37,6 @@ export const Home = () => {
                 }
             })
         ).data;
-        // console.log(json);
         setMovies(json_popular.results);
         setPlayings(json_now.results);
         setLoading(false);

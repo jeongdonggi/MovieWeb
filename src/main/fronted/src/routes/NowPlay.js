@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import Movie from "../components/Movie";
+import Movie from "../components/Movie/Movie";
 import axios from "axios";
 import "../css/NowPlay.css";
 

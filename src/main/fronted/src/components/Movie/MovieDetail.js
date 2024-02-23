@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
-import "../css/Movie.css"
 import Video from "./Video";
 import Image from "./Image";
 import Recommend from "./Recommend";
 import { useEffect } from "react";
-import "../css/MovieDetail.css";
+import "../../css/MovieDetail.css";
 import Actor from "./Actor";
 
 export const Movie = ({id, title, year, showTm, genres, background, poster, summary, tagline, late}) => {

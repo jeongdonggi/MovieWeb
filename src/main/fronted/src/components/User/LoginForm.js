@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
+import "../../css/Ucss/LoginForm.css";
 
-const LoginForm = () => {
+const LoginForm = ({setLogin}) => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState(''); 
 
@@ -12,6 +13,10 @@ const LoginForm = () => {
        if(e.key === 'Enter') {
         handleLogin();
        }
+    }
+
+    const BackToMain = () => {
+        Navigation(`/`);
     }
 
     const handleLogin = async () => {
@@ -26,12 +31,12 @@ const LoginForm = () => {
 
             if (response.data !== 0) {
                 // 로그인 성공 시 처리
-                console.log('로그인 성공');
-                sessionStorage.setItem('id', response.data)
+                sessionStorage.setItem('id', response.data);
+                sessionStorage.setItem('login',true);
+                setLogin(true);
                 Navigation(`/home`);
             } else {
                 // 로그인 실패 시 처리
-                console.error('로그인 실패');
                 redirect("/login");
             }
         } catch (error) {
@@ -40,11 +45,15 @@ const LoginForm = () => {
     };
 
   return (
-    <div>
-        <p><input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={onClickEnter} /></p>
-        <p><input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={onClickEnter} /></p>
-        <p><button onClick={handleLogin}>로그인</button></p>
+    <div className='popup'>
+        <div className='login__container'>
+            <button onClick={BackToMain}>X</button>
+            <p><input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={onClickEnter} /></p>
+            <p><input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyDown={onClickEnter} /></p>
+            <p><button onClick={handleLogin}>로그인</button></p>
+        </div>
     </div>
+    
   )
 }
 

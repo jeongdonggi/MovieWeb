@@ -52,9 +52,7 @@ const Genres = () => {
 
     useEffect(() => {
         const genreObj = genres.find(genre => genre.id === parseInt(genresid, 10));
-        console.log(genresid);
-        console.log(genres)
-        console.log(genreObj);
+
         if(genreObj){
             setGname(genreObj.name);
         } else{

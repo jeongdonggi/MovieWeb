@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import "../../css/Ucss/AllInfo.css";
+import { useNavigate } from 'react-router-dom';
 
-const AllInfo = () => {
+const AllInfo = ({login, setUserId}) => {
   const [userList, setUserList] = useState([]);
+
+  const myId = sessionStorage.getItem("id");
+
+  const Navigation = useNavigate();
 
   useEffect(() => {
     // 컴포넌트가 마운트될 때 초기 데이터 로딩
@@ -12,23 +18,32 @@ const AllInfo = () => {
   const getUserAll = async () => {
     try {
       const response = await axios.get(`/api/allinfo`);
-      console.log(response.data);
       setUserList(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
   };
 
+  const handleOtherInfo = (userId) => {
+    setUserId(userId);
+    Navigation(`/otherinfo`);
+  }
+
   return (
-    <div>
-      <h2>User List</h2>
-      <ul>
-        {userList.map((user, index) => (
-          <li key={index}>
-            <strong> Nickname:</strong> {user.nickname}
-          </li>
-        ))}
-      </ul>
+    <div className='allinfo__container'>
+      {login ? (
+        <ul className='allinfo__ul'>
+          {userList.map((user, index) => (
+            <li key={index}>
+              {(myId !== user.id) ? (
+                <div className='allinfo__div' onClick={() => {handleOtherInfo(user.id)}}>{user.nickname}</div>
+              ) : (null)}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        null
+      )}
     </div>
   );
 };

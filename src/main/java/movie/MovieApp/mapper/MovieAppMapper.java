@@ -1,8 +1,6 @@
 package movie.MovieApp.mapper;
 
-import movie.MovieApp.dto.UserDto;
-import movie.MovieApp.dto.UserInfoDto;
-import movie.MovieApp.dto.UserLoginDto;
+import movie.MovieApp.dto.*;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -11,13 +9,22 @@ import java.util.List;
 public interface MovieAppMapper {
 
     @Select("SELECT * FROM MovieApp WHERE id=#{id}")
-    UserDto getUser(@Param("id") int id);
+    UserMyInfoDto getUser(@Param("id") int id);
 
-    @Select("SELECT nickname FROM MovieApp")
+    @Select("SELECT nickname FROM MovieApp WHERE id=#{id}")
+    UserAllInfoDto getOtherUser(@Param("id") int id);
+
+    @Select("SELECT id, nickname FROM MovieApp")
     List<UserInfoDto> getUserAll();
 
     @Select("SELECT * FROM MovieApp WHERE name=#{name}")
     UserLoginDto getUserByName(@Param("name") String name);
+
+    @Select("SELECT nickname FROM MovieApp WHERE id=#{id}")
+    UserInfoDto getUserNickname(@Param("id") int id);
+
+    @Select("SELECT password FROM MovieApp WHERE id=#{id}")
+    UserPassDto getUserPassword(@Param("id") int id);
 
     @Select("SELECT id FROM MovieApp WHERE name=#{name}")
     int getUserId(@Param("name") String name);
