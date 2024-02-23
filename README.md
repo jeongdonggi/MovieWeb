@@ -19,6 +19,26 @@ restAPI를 구현해보기 위해 restController로 값을 받아주었고 리�
 
 네비게이션으로는 Movie Web을 누르면 나오면 맨 처음 화면, 상영작, 장르가 있다.
 
+### 기본화면
+<img width="1120" alt="image" src="https://github.com/jeongdonggi/MovieWeb/assets/100845304/2a00d7c4-bca9-4afd-b9b0-fdfe7a60999e">
+
+로그인과 회원가입을 해야 기능을 사용할 수 있도록 Router에 조건을 달아주었다.
+
+### 값 입력 - 로그인, 회원가입, 업데이트, 회원탈퇴 등
+<img width="1120" alt="image" src="https://github.com/jeongdonggi/MovieWeb/assets/100845304/3beac59b-d7ea-438f-885a-ef60e4c61713">
+
+로그인과 회원가입은 팝업 형식으로, 나머지는 사이트에서 값을 넣을 수 있도록 해주었다.
+
+### 내 정보
+<img width="1120" alt="image" src="https://github.com/jeongdonggi/MovieWeb/assets/100845304/89b68034-89fd-4956-be96-de246ec0a5cc">
+
+내 정보를 볼 수 있고 닉네임, 비밀번호 업데이트 및 탈퇴가 가능하다.
+
+### 회원 목록 - 추가
+<img width="1123" alt="image" src="https://github.com/jeongdonggi/MovieWeb/assets/100845304/d3b60813-3578-4b9f-9fea-8a91628e61e4">
+
+누르게 되면 회원의 닉네임이 보이게 된다.
+
 ### 홈
 <img width="959" alt="image" src="https://github.com/jeongdonggi/MovieWeb/assets/100845304/0a281f40-0cc4-4aa1-903e-b73a4c34d24b">
 
@@ -59,12 +79,7 @@ API로 받아 올 장르를 고르면 맞는 결과가 나온다.
 
 ## 구현 중인 부분
 
-### 기본화면
-<img width="959" alt="image" src="https://github.com/jeongdonggi/MovieWeb/assets/100845304/d0d9fa74-8142-447b-91df-6277c4ed4277">
-
 현재 구현중인 부분으로 로그인, 회원가입, 내 정보, 회원 정보를 나타낸다. 현재 모두 결과가 잘 나오므로 CSS를 좀 더 추가해줄 예정이다.
-
-### 추가할 점
 
 1. 홈에서의 5가지 장르의 영화를 나중에 회원가입 시 정한 장르 5개로 바꿔줄 예정이다.
 2. 영화에 좋아요나 찜을 할 수 있도록 해줄 예정이다. 이때 다른사람의 찜이나 좋아요 목록을 볼 수 있도록 해줄 예정
