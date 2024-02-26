@@ -4,14 +4,14 @@
 }
 
 .background__container {
-    width: 100%;
+    width: 90%;
     height: 450px;
     position: absolute;
     overflow: hidden;
 }
 
 .background {
-    width: 100%;
+    width: 90%;
     height: auto;
     object-fit: cover;
     z-index: -1;
@@ -103,4 +103,22 @@
 .movie__summary::-webkit-scrollbar-thumb {
     background-color: #555;
     border-radius: 10px;
+}
+
+.explanation__like__false {
+    margin-left: 98%; /* 나머지 공간을 최대한 확보하여 오른쪽 정렬 */
+    margin-top: 2%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+
+.explanation__like__true {
+    margin-left: 98%; /* 나머지 공간을 최대한 확보하여 오른쪽 정렬 */
+    margin-top: 2%;
+    background: none;
+    border: none;
+    color: red;
+    font-size: 24px;
 }

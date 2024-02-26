@@ -1,4 +1,4 @@
-package movie.MovieApp.dto;
+package movie.MovieApp.dto.User;
 
 import lombok.Getter;
 import lombok.Setter;

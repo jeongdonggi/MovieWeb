@@ -28,7 +28,6 @@ import OtherInfo from "./components/User/OtherInfo";
 
 export const App = () => {
   const [login, setLogin] = useState(false);
-  const [userId, setUserId] = useState();
 
   useEffect(() => {
     if( sessionStorage.getItem('login') !== null) {
@@ -58,7 +57,7 @@ export const App = () => {
           </h1>
           <SearchBar login={login}/>
           <Navigation login={login}/>
-          <AllInfo login={login} setUserId={setUserId} />
+          <AllInfo login={login} />
         </div>
         <div className="right-80">
             {login ? (
@@ -72,7 +71,7 @@ export const App = () => {
                   <Route path="/now" element={<NowPlay />} />
                   <Route path="/genre/:genresid" element={<Genres />} />
                   <Route path="/myinfo" element={<Myinfo />} />
-                  <Route path="/otherinfo" element={<OtherInfo id={userId}/>} />
+                  <Route path="/otherinfo/:userId" element={<OtherInfo />} />
                   <Route path="/update" element={<UserUpdate />} />
                   <Route path="/withdraw" element={<DeleteUser />} />
 

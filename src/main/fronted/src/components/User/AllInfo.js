@@ -3,7 +3,7 @@ import axios from 'axios';
 import "../../css/Ucss/AllInfo.css";
 import { useNavigate } from 'react-router-dom';
 
-const AllInfo = ({login, setUserId}) => {
+const AllInfo = ({login}) => {
   const [userList, setUserList] = useState([]);
 
   const myId = sessionStorage.getItem("id");
@@ -25,8 +25,7 @@ const AllInfo = ({login, setUserId}) => {
   };
 
   const handleOtherInfo = (userId) => {
-    setUserId(userId);
-    Navigation(`/otherinfo`);
+    Navigation(`/otherinfo/${userId}`);
   }
 
   return (

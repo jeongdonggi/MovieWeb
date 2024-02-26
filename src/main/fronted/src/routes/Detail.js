@@ -8,6 +8,9 @@ const Detail = () => {
 
     const [loading, setLoading] = useState(true);
     const [movie, setMovie] = useState(null);
+    const [like,setLike] = useState(false);
+
+    const userId = sessionStorage.getItem("id");
 
     const {id} = useParams(); // :id 처럼 되어있는 값을 받아온다.
     
@@ -21,15 +24,26 @@ const Detail = () => {
                 params: {
                     api_key: TMDB_API ,
                     language : 'ko',
-                    page : 1,
                     region : 'KR'
                 }
             })
         ).data;
+
+        const response = await axios.post(`/api/mylike`,{
+            id : userId,
+            like : id
+        });
+
+        if(response.data === 1){
+            setLike(true);
+        } else{
+            setLike(false);
+        }
+
         setMovie(json);
         setLoading(false);
-    },[id, TMDB_API]);
-    
+    },[userId ,id, TMDB_API]);
+
     useEffect(() => {
         getMovie();
     },[getMovie])
@@ -53,6 +67,7 @@ const Detail = () => {
                             summary={movie.overview}
                             tagline={movie.tagline}
                             late={movie.vote_average}
+                            like={like}
                         >
                         </MovieDetail>
                     </div> 

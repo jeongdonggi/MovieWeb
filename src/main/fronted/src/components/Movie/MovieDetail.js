@@ -2,19 +2,54 @@ import PropTypes from "prop-types";
 import Video from "./Video";
 import Image from "./Image";
 import Recommend from "./Recommend";
-import { useEffect } from "react";
+import { useState ,useEffect, useCallback } from "react";
 import "../../css/MovieDetail.css";
 import Actor from "./Actor";
 
-export const Movie = ({id, title, year, showTm, genres, background, poster, summary, tagline, late}) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import axios from "axios";
+
+export const Movie = ({id, title, year, showTm, genres, background, poster, summary, tagline, late, like}) => {
     const tmdbImageUrl = "https://image.tmdb.org/t/p/w500";
     
     const PosterImageUrl = tmdbImageUrl + poster;
     const backgroundImageUrl = tmdbImageUrl + background;
 
+    const [liked, setLiked] = useState(like);
+
+    const userId = sessionStorage.getItem("id");
+
+    const handleLiked = () => {
+        setLiked(!liked); // 일단 잘 나옴
+    }
+
+    const handleLikeMovie = useCallback ( async () => {
+        await axios.post(`/api/movielike`,{
+            id : userId,
+            like : id
+        })
+    },[userId, id]);
+
+    const handleDisLikeMovie = useCallback ( async () => {
+        await axios.post(`/api/moviedislike`,{
+            id : userId,
+            like : id
+        })
+    },[userId, id]);
+
     useEffect(()=>{
         window.scrollTo(0,0);
-    },[id]);
+    },[]);
+
+    // 여기서 만약에 db에 값이 있다면 변경되지 않아야됨
+    useEffect(()=>{
+        if(liked){
+            handleLikeMovie();
+        } else {
+            handleDisLikeMovie();
+        }
+    },[liked, handleLikeMovie, handleDisLikeMovie])
 
     return (
         <div className="movie">
@@ -30,6 +65,9 @@ export const Movie = ({id, title, year, showTm, genres, background, poster, summ
                     ): (<p>포스터가 없습니다</p>)
                 }</div>
                 <div className="explanation__movie">
+                    <button className={`explanation__like${liked ? "__true" : "__false" }`} onClick={handleLiked}>
+                        <FontAwesomeIcon icon={faHeart} />
+                    </button>
                     <h2 className="movie__title">
                         {title}
                     </h2>
@@ -65,7 +103,8 @@ Movie.propTypes = {
     poster: PropTypes.string.isRequired, 
     summary: PropTypes.string.isRequired, 
     tagline: PropTypes.string.isRequired,
-    late: PropTypes.number.isRequired
+    late: PropTypes.number.isRequired,
+    like: PropTypes.bool.isRequired
 };
 
 export default Movie;

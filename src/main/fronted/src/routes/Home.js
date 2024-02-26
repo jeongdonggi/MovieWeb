@@ -9,7 +9,11 @@ export const Home = () => {
     const [movies, setMovies] = useState([]);
     const [playings, setPlayings] = useState([]);
 
+    const [genres, setGenres] = useState([]);
+
     const TMDB_API =  process.env.REACT_APP_TMDB_API_KEY;
+
+    const userId = sessionStorage.getItem("id");
 
     // 비동기 함수: Promise => 비동기 작업의 단위
     const getMovies = useCallback(async() => {
@@ -37,10 +41,16 @@ export const Home = () => {
                 }
             })
         ).data;
+
+        const getSelcet = await axios.post(`/api/usertag`, {
+            id : userId
+        });
+
+        setGenres(getSelcet.data);
         setMovies(json_popular.results);
         setPlayings(json_now.results);
         setLoading(false);
-    },[TMDB_API]);
+    },[TMDB_API, userId]);
 
     useEffect(() => {
         getMovies();
@@ -70,16 +80,13 @@ export const Home = () => {
                                 <Movie
                                     id={playing.id}
                                     poster={playing.poster_path}
-                            ></Movie>
+                                ></Movie>
                             </div>
                         ))}
                     </div>
-                    <GenresHome genresid={28}/>
-                    <GenresHome genresid={12}/>
-                    <GenresHome genresid={35}/>
-                    <GenresHome genresid={18}/>
-                    <GenresHome genresid={10749}/>
-                    <GenresHome genresid={27}/>
+                    {genres.map((genre, index) => (
+                        <GenresHome key={index} genresid={genre} />
+                    ))}
                 </div>
                 )
             }

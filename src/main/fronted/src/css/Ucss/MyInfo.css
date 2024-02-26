@@ -13,6 +13,11 @@
     margin-bottom: 15px;
     font-size: 18px;
   }
+
+  .myinfo__p {
+    width: 60%;
+    margin: auto;
+  }
   
   .myinfo__btn {
     display: flex;

@@ -1,7 +1,8 @@
 package movie.MovieApp.controller;
 
 import lombok.RequiredArgsConstructor;
-import movie.MovieApp.dto.*;
+import movie.MovieApp.dto.Movie.MovieDto;
+import movie.MovieApp.dto.User.*;
 import movie.MovieApp.mapper.MovieAppMapper;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +35,21 @@ public class UserController {
         String name = user.getName();
         String nickname = user.getNickname();
         String password = user.getPassword();
+        List<Integer> select = user.getSelect();
 
-        return mapper.InsertUser(name, nickname, password);
+        int insertUser = mapper.InsertUser(name, nickname, password);
+        int insertTag = 0;
+
+        int userId = mapper.getUserId(name);
+
+        for(int i = 0 ; i < select.size(); i++){
+            insertTag += mapper.InsertTag(userId, select.get(i));
+        }
+
+        int insertReturn = insertUser * insertTag;
+
+        System.out.println("insertReturn = " + insertReturn);
+        return insertReturn;
     }
 
     @PostMapping("/myinfo")
@@ -112,4 +126,44 @@ public class UserController {
         return mapper.DeleteUser(userId);
     }
 
+
+    // 영화
+    @PostMapping("/movielike")
+    public int movielike(@RequestBody Map<String, String> request) {
+        System.out.println("UserController.movielike");
+
+        int userId = Integer.parseInt(request.get("id"));
+        int likeId = Integer.parseInt(request.get("like"));
+
+        return mapper.InsertUserLike(userId, likeId);
+    }
+
+    @PostMapping("/moviedislike")
+    public int moviedislike(@RequestBody Map<String, String> request) {
+        System.out.println("UserController.moviedislike");
+
+        int userId = Integer.parseInt(request.get("id"));
+        int likeId = Integer.parseInt(request.get("like"));
+
+        return mapper.DeleteUserDisLike(userId, likeId);
+    }
+
+    @PostMapping("/movielikeall")
+    public List<MovieDto> movielikeall(@RequestBody Map<String, String> request) {
+        System.out.println("UserController.movielikeall");
+
+        int userId = Integer.parseInt(request.get("id"));
+
+        return mapper.getUserLikeAll(userId);
+    }
+
+    @PostMapping("/mylike")
+    public int mylike(@RequestBody Map<String, String> request) {
+        System.out.println("UserController.mylike");
+
+        int userId = Integer.parseInt(request.get("id"));
+        int likeId = Integer.parseInt(request.get("like"));
+
+        return mapper.getUserLike(userId, likeId);
+    }
 }

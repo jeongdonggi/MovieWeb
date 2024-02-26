@@ -18,6 +18,7 @@
     width: 40%;
     margin: 10% auto;
     text-align: center;
+    border: 2px solid white;
 }
 
 .join__container > button {
