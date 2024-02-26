@@ -13,6 +13,7 @@ const MyMovieDetail = ({userId, likes}) => {
     const tmdbImageUrl = "https://image.tmdb.org/t/p/w500";
 
     const getUserLikeAll = useCallback( async ()=>{
+        console.log(likes);
         setMovieId(likes); // like_id 받아야됨
     },[likes])
 

@@ -17,10 +17,12 @@ export const Movie = ({id, title, year, showTm, genres, background, poster, summ
     const backgroundImageUrl = tmdbImageUrl + background;
 
     const [liked, setLiked] = useState(like);
+    console.log(liked);
 
     const userId = sessionStorage.getItem("id");
 
     const handleLiked = () => {
+        console.log("버튼 누름");
         setLiked(!liked); // 일단 잘 나옴
     }
 
@@ -38,12 +40,9 @@ export const Movie = ({id, title, year, showTm, genres, background, poster, summ
         })
     },[userId, id]);
 
-    useEffect(()=>{
-        window.scrollTo(0,0);
-    },[]);
-
     // 여기서 만약에 db에 값이 있다면 변경되지 않아야됨
     useEffect(()=>{
+        window.scrollTo(0,0);
         if(liked){
             handleLikeMovie();
         } else {

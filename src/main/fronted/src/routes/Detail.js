@@ -10,6 +10,7 @@ const Detail = () => {
     const [movie, setMovie] = useState(null);
     const [like,setLike] = useState(false);
 
+
     const userId = sessionStorage.getItem("id");
 
     const {id} = useParams(); // :id 처럼 되어있는 값을 받아온다.
@@ -34,15 +35,21 @@ const Detail = () => {
             like : id
         });
 
-        if(response.data === 1){
-            setLike(true);
-        } else{
-            setLike(false);
-        }
-
         setMovie(json);
         setLoading(false);
+
+        if(response.data === 1){
+            console.log("값이 있음");
+            setLike(true);
+        } else{
+            console.log("값이 없음");
+            setLike(false);
+        }
     },[userId ,id, TMDB_API]);
+
+    useEffect(()=>{
+        setLoading(true);
+    },[id])
 
     useEffect(() => {
         getMovie();

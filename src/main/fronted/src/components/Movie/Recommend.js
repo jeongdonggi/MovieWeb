@@ -4,6 +4,7 @@ import axios from "axios";
 import "../../css/Recommend.css";
 
 const Recommend = ({id}) => {
+
     const [recommends, setRecommends] = useState([]);
     const [loading, setLoading] = useState(true);
 

@@ -135,7 +135,11 @@ public class UserController {
         int userId = Integer.parseInt(request.get("id"));
         int likeId = Integer.parseInt(request.get("like"));
 
-        return mapper.InsertUserLike(userId, likeId);
+        if( mapper.getUserLike(userId, likeId) != 1 ){
+            return mapper.InsertUserLike(userId, likeId);
+        } else {
+            return -1;
+        }
     }
 
     @PostMapping("/moviedislike")

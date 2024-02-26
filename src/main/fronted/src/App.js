@@ -73,7 +73,7 @@ export const App = () => {
                   <Route path="/myinfo" element={<Myinfo />} />
                   <Route path="/otherinfo/:userId" element={<OtherInfo />} />
                   <Route path="/update" element={<UserUpdate />} />
-                  <Route path="/withdraw" element={<DeleteUser />} />
+                  <Route path="/withdraw" element={<DeleteUser setLogin={setLogin} />} />
 
                   <Route path="/" element={<First setLogin={setLogin} />} />
                   <Route path="/login" element={<LoginForm setLogin={setLogin} />} />

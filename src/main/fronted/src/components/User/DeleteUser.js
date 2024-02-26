@@ -3,7 +3,7 @@ import axios from "axios"
 import { redirect, useNavigate } from 'react-router-dom';
 import "../../css/Ucss/DeleteUser.css";
 
-const DeleteUser = () => {
+const DeleteUser = ({setLogin}) => {
     const id = sessionStorage.getItem("id");
 
     const Navigation = useNavigate();
@@ -35,6 +35,8 @@ const DeleteUser = () => {
             });
 
             if( response.data === 1) {
+                sessionStorage.clear();
+                setLogin(false);
                 Navigation('/');
             } else {
                 redirect(`/withdraw`);
@@ -43,7 +45,6 @@ const DeleteUser = () => {
             redirect(`/withdraw`);
         }
         }
-        
 
   return (
     <div className="delete__container">
