@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import "../../css/Ucss/MyMovieDetail.css";
+import { Link } from "react-router-dom";
 
 const MyMovieDetail = ({userId, likes}) => {
 
@@ -50,7 +51,9 @@ const MyMovieDetail = ({userId, likes}) => {
   return (
     <div className="usermovie__container">
         {movie.map((movie,index) => (
-            <img key={index}  alt="poster" src={`${tmdbImageUrl}${movie}`}></img> 
+            <Link key={index} to={`/movie/${movieId[index].like_id}`}>
+                <img className="usermovie__poster" alt="poster" src={`${tmdbImageUrl}${movie}`}></img> 
+            </Link>
         ))}
     </div>
   )
