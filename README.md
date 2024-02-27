@@ -29,6 +29,10 @@ npm install http-proxy-middleware --save
 이를 이용해 proxy로 포트를 8080으로 연결해주었다.
 또한 build.gradle에서 build 시 react build를 포함할 수 있도록 해주었다.
 
+### 시연 동영상
+
+https://youtu.be/rckWAuyVa8E
+
 ## 주요 기능
 
 ### 네비게이션
