@@ -10,7 +10,7 @@ react를 이용한 Movie App. TMDB API를 이용하였다.
 <hr>
 
 ### API 연결
-axois로 TMDB API를 가져와서 사용하였다. 프론트는 React, 백엔드는 SpringBoot로 구현하였다.
+axois로 TMDB API를 가져와서 사용하였다. 프론트는 React(PropTypes 사용), 백엔드는 SpringBoot로 구현하였다.
 restAPI를 구현해보기 위해 restController로 값을 받아주었고 리액트에서는 Router를 이용하여 화면전환을 해주었다.
 db는 MySQL을 이용하였다.
 
