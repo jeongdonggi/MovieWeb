@@ -9,12 +9,32 @@ react를 이용한 Movie App. TMDB API를 이용하였다.
 
 <hr>
 
-### API 연결
+## 배포
+
+GCP를 이용하여 배포해보았다.
+![배포쓰](https://github.com/jeongdonggi/MovieWeb/assets/100845304/da6ac577-b4b0-49e1-a703-b5cd14941597)
+
+#### 배포 순서
+1. VM 인스턴스 생성
+2. 로컬에서 SSH Key 생성
+3. 공개키를 GCP 원격 서버에 등록
+4. GCP 인스턴스에 공개키 등록
+5. vscode에 Remote SSH를 이용하여 연결
+6. VPC 네트워크에서 방화벽 규칙에 포트 지정(:8080)
+7. config IdentityFile에 개인키 등록
+8. jar 파일 넣기
+9. nohup를 이용하여 배포
+
+#### 보완점
+- DB를 연결 안해서 로그인이 안된다.
+- 주소가 IP라 변경해야된다.
+
+## API 연결
 axois로 TMDB API를 가져와서 사용하였다. 프론트는 React(PropTypes 사용), 백엔드는 SpringBoot로 구현하였다.
 restAPI를 구현해보기 위해 restController로 값을 받아주었고 리액트에서는 Router를 이용하여 화면전환을 해주었다.
 db는 MySQL을 이용하였다.
 
-### DB
+## DB
 <img width="500" alt="image" src="https://github.com/jeongdonggi/MovieWeb/assets/100845304/85e5c74a-a2fa-4f9f-9150-8cd59973ddc7">
 
 movieapp: User 정보
@@ -22,14 +42,14 @@ usertags: 로그인 시 넣은 tag
 tag: 영화 장르
 usermovie: 하트를 눌러서 저장한 영화
 
-### Proxy
+## Proxy
 ```cmd
 npm install http-proxy-middleware --save
 ```
 이를 이용해 proxy로 포트를 8080으로 연결해주었다.
 또한 build.gradle에서 build 시 react build를 포함할 수 있도록 해주었다.
 
-### 시연 동영상
+## 시연 동영상
 
 https://youtu.be/rckWAuyVa8E
 
