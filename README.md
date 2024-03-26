@@ -19,11 +19,12 @@ GCP를 이용하여 배포해보았다.
 2. 로컬에서 SSH Key 생성
 3. 공개키를 GCP 원격 서버에 등록
 4. GCP 인스턴스에 공개키 등록
-5. vscode에 Remote SSH를 이용하여 연결
-6. VPC 네트워크에서 방화벽 규칙에 포트 지정(:8080)
-7. config IdentityFile에 개인키 등록
-8. jar 파일 넣기
-9. nohup를 이용하여 배포
+5. 방화벽에서 TCP port 8080 설정
+6. vscode에 Remote SSH를 이용하여 연결
+7. VPC 네트워크에서 방화벽 규칙에 포트 지정(:8080)
+8. config IdentityFile에 개인키 등록
+9. jar 파일 넣기
+10. nohup를 이용하여 배포
 
 #### 보완점
 - DB를 연결 안해서 로그인이 안된다.
