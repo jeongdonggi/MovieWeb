@@ -14,7 +14,7 @@ react를 이용한 Movie App. TMDB API를 이용하였다.
 GCP를 이용하여 배포해보았다.
 ![배포쓰](https://github.com/jeongdonggi/MovieWeb/assets/100845304/da6ac577-b4b0-49e1-a703-b5cd14941597)
 
-#### 배포 순서
+#### VM 인스턴스 생성
 1. VM 인스턴스 생성
 2. 로컬에서 SSH Key 생성
 3. 공개키를 GCP 원격 서버에 등록
@@ -23,12 +23,20 @@ GCP를 이용하여 배포해보았다.
 6. vscode에 Remote SSH를 이용하여 연결
 7. VPC 네트워크에서 방화벽 규칙에 포트 지정(:8080)
 8. config IdentityFile에 개인키 등록
-9. jar 파일 넣기
-10. nohup를 이용하여 배포
+9. 고정 외부 IP로 승격
 
-#### 보완점
-- DB를 연결 안해서 로그인이 안된다.
-- 주소가 IP라 변경해야된다.
+
+#### SQL 연결
+1. SQL 생성 - MYSQL
+2. 승인된 네트워크에 VM 고정 외부 IP 넣기
+3. SSH로 MYSQL 설치 후 DB 설정
+4. SpringBoot에 yml 설정 변경
+
+
+#### 배포
+1. jar 파일 넣기
+2. nohup를 이용하여 배포
+
 
 ## API 연결
 axois로 TMDB API를 가져와서 사용하였다. 프론트는 React(PropTypes 사용), 백엔드는 SpringBoot로 구현하였다.
